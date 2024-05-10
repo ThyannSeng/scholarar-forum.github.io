@@ -7,6 +7,20 @@
   <title>Scholarar</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
+
+</script>
+<script type="text/javascript">
+  function redirectToLink() {
+      var select = document.getElementById('scholarship-select');
+      var value = select.options[select.selectedIndex].value;
+      
+      if (value !== "") {
+          window.location.href = value;
+      }
+  }
+</script>
+
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&display=swap');
 
@@ -125,10 +139,10 @@
       <div class="flex justify-between items-center py-2 border-t ">
         <div class="flex">
             <div class="relative">
-              <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Scholarships">
+              <select id="scholarship-select"  class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Scholarships" onchange="redirectToLink()">
                 <option value="" hidden disabled selected></option>
-                  <option value="mext-scholarship">MEXT Scholarship</option>
-                  <option value="xxxxx-scholarship">xxxxx Scholarship</option>
+                  <option value="scholarship_details.html">MEXT Scholarship1</option>
+                  <option value="#">xxxxx Scholarship</option>
               </select>
               <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
                   <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
@@ -137,9 +151,9 @@
           <div class="relative">
             <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Countries">
               <option value="" hidden disabled selected></option>
-                <option value="china">China</option>
-                <option value="japan">Japan</option>
-                <option value="thailand">Thailand</option>
+                <option value="#">China</option>
+                <option value="#">Japan</option>
+                <option value="#">Thailand</option>
             </select>
             <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
                 <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
@@ -148,10 +162,10 @@
           <div class="relative">
               <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Majors" >
                 <option value="" hidden disabled selected></option>
-                <option value="information-systems">Information Systems</option>
-                <option value="management">Management</option>
-                <option value="nurse">Nurse</option>
-                <option value="interior-design">Interior Design</option>
+                <option value="#">Information Systems</option>
+                <option value="#">Management</option>
+                <option value="#">Nurse</option>
+                <option value="#">Interior Design</option>
               </select>
               <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
                   <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
@@ -302,7 +316,7 @@
                 window.addEventListener('beforeunload', resetToPlaceholder);
             });
         });
-        </script>
+</script>
         
         
         
