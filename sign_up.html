@@ -91,6 +91,32 @@
         margin-top: 20px;
     }
 
+    fieldset {
+    width: 106%; /* Full width to match other inputs */
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Includes padding and border in the width calculation */
+}
+
+legend {
+    padding: 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+label {
+    margin-right: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
     @media (max-width: 768px) {
         .container {
             flex-direction: column;
@@ -116,27 +142,32 @@
         <div class="right">
             <div class="signup-form">
                 <h2>Sign Up</h2>
+                <fieldset>
+                    <legend>I am:</legend>
+                    <label for="student"><input type="radio" name="role" id="student" value="student"> A Student</label>
+                    <label for="parent"><input type="radio" name="role" id="parent" value="parent"> A Parent/Guardian</label>
+                </fieldset>
+                <br>
                 <label for="username">Username</label>
                 <input type="text" id="username" placeholder="Choose a username">
+
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" placeholder="Enter your email">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Create a password">
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" placeholder="Confirm your password">
-                <label for="dob">Date of Birth</label>
-                <input type="date" id="dob">
-                <fieldset>
-                    <legend>I am:</legend>
-                    <label for="student"><input type="radio" name="role" id="student" value="student"> A Student</label>
-                    <label for="parent"><input type="radio" name="role" id="parent" value="parent"> A Parent/Guardian</label>
-                </fieldset>
+
+
                 <button type="submit">Sign Up</button>
                 <div class="login">
                     Already have an account? <a href="login.html">Log in</a>
                 </div>
             </div>
         </div>
+        
     </li>
 </body>
 </html>
