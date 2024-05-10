@@ -45,7 +45,15 @@
     margin-left: 16px; /* Adjust as needed */
 }
 
+.select-centered {
+    text-align: center; /* Horizontally centers text */
 
+}
+
+/* Ensures the select fills its container */
+.select-centered {
+    width: 100%;
+}
 
   </style>
 </head>
@@ -116,31 +124,34 @@
 		  </div>
       <div class="flex justify-between items-center py-2 border-t ">
         <div class="flex">
-          <div class="relative">
-              <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary">
-                  <option value="#">Scholarship</option>
-                  <option value="#">Option 1</option>
-                  <option value="#">Option 2</option>
+            <div class="relative">
+              <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Scholarships">
+                <option value="" hidden disabled selected></option>
+                  <option value="mext-scholarship">MEXT Scholarship</option>
+                  <option value="xxxxx-scholarship">xxxxx Scholarship</option>
               </select>
               <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
                   <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
               </div>
           </div>
           <div class="relative">
-              <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary">
-                  <option value="#">Countries</option>
-                  <option value="#">Option 1</option>
-                  <option value="#">Option 2</option>
-              </select>
-              <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
-                  <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
-              </div>
-          </div>
+            <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Countries">
+              <option value="" hidden disabled selected></option>
+                <option value="china">China</option>
+                <option value="japan">Japan</option>
+                <option value="thailand">Thailand</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
+                <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
+            </div>
+        </div>
           <div class="relative">
-              <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary" >
-                  <option value="#">Major</option>
-                  <option value="#">Option 1</option>
-                  <option value="#">Option 2</option>
+              <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Majors" >
+                <option value="" hidden disabled selected></option>
+                <option value="information-systems">Information Systems</option>
+                <option value="management">Management</option>
+                <option value="nurse">Nurse</option>
+                <option value="interior-design">Interior Design</option>
               </select>
               <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
                   <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
@@ -264,3 +275,34 @@
         
         
       </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var selects = document.querySelectorAll('select[data-placeholder]');
+            selects.forEach(function (select) {
+                function resetToPlaceholder() {
+                    select.selectedIndex = 0; // Reset to the first option (placeholder)
+                    select.style.color = '#000000'; // Placeholder color (gray)
+                    select.options[0].text = select.getAttribute('data-placeholder'); // Ensure placeholder text is shown
+                }
+        
+                // Set placeholder on initial load
+                resetToPlaceholder();
+        
+                // Add event listener for changes on the select elements
+                select.addEventListener('change', function() {
+                    if (select.value === "") {
+                        resetToPlaceholder();
+                    } else {
+                        select.style.color = 'black'; // Change text color to black when an option is selected
+                    }
+                });
+        
+                // Reset to placeholder on page refresh
+                window.addEventListener('beforeunload', resetToPlaceholder);
+            });
+        });
+        </script>
+        
+        
+        

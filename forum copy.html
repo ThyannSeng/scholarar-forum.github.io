@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Forum</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header {
+      background-color: #f9fafb;
+      padding: 20px 0;
+    }
+
+    .header-logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    .header-nav-link {
+      font-size: 16px;
+      font-weight: 500;
+      color: #374151;
+      text-decoration: none;
+    }
+
+    .header-nav-link:hover {
+      color: #0d6efd;
+    }
+
+    .main {
+      margin-top: 20px;
+    }
+
+    .main-content {
+      background-color: #ffffff;
+      padding: 20px;
+    }
+
+    .main-content-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main-content-header-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .main-content-header-button {
+      background-color: #0d6efd;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .main-content-header-button:hover {
+      background-color: #0b5ed7;
+    }
+
+    .main-content-body {
+      margin-top: 20px;
+    }
+
+    .question-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .question-item {
+      background-color: #f9fafb;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .question-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .question-item-header-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .question-item-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .question-item-header-meta-item {
+      font-size: 14px;
+      color: #868e96;
+    }
+
+    .question-item-body {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #374151;
+    }
+
+    .question-item-footer {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .question-item-footer-button {
+      background-color: #0d6efd;
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .question-item-footer-button:hover {
+      background-color: #0b5ed7;
+    }
+
+    .pagination {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .pagination-item {
+      background-color: #f9fafb;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #374151;
+      text-decoration: none;
+    }
+
+    .pagination-item:hover {
+      background-color: #0d6efd;
+      color: #ffffff;
+    }
+
+    .pagination-item--active {
+      background-color: #0d6efd;
+      color: #ffffff;
+    }
+
+    .footer {
+      background-color: #f9fafb;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color: #868e96;
+    }
+    .question-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.question-item {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 20px;
+}
+
+.question-item-header {
+  margin-bottom: 10px;
+}
+
+.question-item-header-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.question-item-header-meta {
+  color: #777;
+  font-size: 14px;
+}
+
+.question-item-header-meta-item {
+  margin-right: 10px;
+}
+
+.question-item-header-meta-item a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.question-item-header-meta-item a:hover {
+  text-decoration: underline;
+}
+
+.question-item-body {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.question-item-footer {
+  display: flex;
+}
+
+.question-item-footer-button {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.question-item-footer-button:hover {
+  background-color: #005ea2;
+}
+
+
+
+  body {
+      font-family: Arial, sans-serif;
+  }
+  .container {
+      display: flex;
+      padding: 20px;
+  }
+  .sidebar, .rightbar {
+      width: 20%;
+  }
+  .main {
+      width: 60%;
+      margin: 0 10px;
+  }
+  .post, .right-item {
+      background: #f1f1f1;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 20px;
+  }
+  .post-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+  }
+  .post-header img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
+  }
+  .post-header a {
+      text-decoration: none;
+      color: #3366CC;
+      font-weight: bold;
+  }
+  .post-content {
+      line-height: 1.4;
+  }
+  .right-item a {
+      text-decoration: none;
+      color: #3366CC;
+  }
+  .interaction-buttons {
+      display: flex;
+      justify-content: start;
+      gap: 10px; /* space between buttons */
+      margin-top: 10px;
+  }
+  .button {
+      padding: 5px 10px;
+      background-color: #ddd;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-1 px-5 lg:px-20">
+        <div class="flex items-center">
+            <a href="index.html">
+                <img src="image/logo.jpg" alt="The Scholarar logo, a blue and green circle with a book and a graduation cap." style="width: 55px;">
+            </a>
+        </div>
+      <div class="flex items-center justify-center flex-grow"> <!-- New container for Scholarar -->
+          <h1 class="text-2xl font-bold text-primary">SCHOLARAR</h1> <!-- Scholarar text -->
+      </div>
+      <div class="flex items-center">
+          <div class="flex items-center space-x-4">
+              <button class="p-2">🔍</button>
+              <button class="p-2">🌐</button>
+              <button class="p-2">📞</button>
+          </div>
+          <button class="p-2">☰</button>
+          <a href="login.html" class="block bg-zinc-200 p-2 rounded text-center text-gray-800 font-semibold hover:bg-zinc-300 transition duration-300">Login</a>
+      </div>
+  </div>
+		<!-- <nav class="bg-gray-100">
+		  <div class="container mx-auto flex justify-between items-center py-4 px-5 lg:px-20">
+			<div class="flex items-center space-x-4">
+			  <a href="#" class="text-gray-700 hover:text-primary">Scholarship</a>
+			  <a href="#" class="text-gray-700 hover:text-primary">Countries</a>
+			  <a href="#" class="text-gray-700 hover:text-primary">Major</a>
+			</div>
+			<div class="flex items-center space-x-4">
+			  <input type="text" placeholder="Search..." class="bg-white border border-gray-300 rounded-md px-4 py-2">
+			  <button class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-md"><i class="fas fa-search"></i></button>
+			</div>
+		  </div>
+		</nav> -->
+	  </header>
+  <div class="container">
+    <header class="header">
+      <div class="header-logo">
+        Forum
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="header-nav-link">Home</a>
+        <a href="#" class="header-nav-link">Questions</a>
+        <a href="#" class="header-nav-link">Tags</a>
+        <a href="#" class="header-nav-link">Users</a>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="main-content">
+        <div class="main-content-header">
+          <h1 class="main-content-header-title">Questions</h1>
+          <a href="#" class="main-content-header-button">Ask a Question</a>
+        </div>
+        <div class="main-content-body">
+          <ul class="question-list">
+            <li class="question-item">
+              <div class="question-item-header">
+                <h2 class="question-item-header-title">What is the best way to learn programming?</h2>
+                <div class="question-item-header-meta">
+                  <span class="question-item-header-meta-item">Asked by John Doe</span>
+                  <span class="question-item-header-meta-item">1 hour ago</span>
+                </div>
+              </div>
+              <div class="question-item-body">
+                <p>I'm a complete beginner and I want to learn how to program. What is the best way to get started? Should I take a course, read books, or just start coding? Any advice would be appreciated.</p>
+              </div>
+              <div class="question-item-footer">
+                <a href="#" class="question-item-footer-button">Answer</a>
+                <a href="#" class="question-item-footer-button">Comment</a>
+              </div>
+            </li>
+            <li class="question-item">
+              <div class="question-item-header">
+                <h2 class="question-item-header-title">How do I create a website?</h2>
+                <div class="question-item-header-meta">
+                  <span class="question-item-header-meta-item">Asked by Jane Doe</span>
+                  <span class="question-item-header-meta-item">2 hours ago</span>
+                </div>
+              </div>
+              <div class="question-item-body">
+                <p>I'm a complete beginner and I want to create a website. What is the best way to get started? Should I use a
+                  </p>
+              </div>
+
+
+
+              <li class="question-item">
+                <div class="question-item-header">
+                  <h2 class="question-item-header-title">What is the best way to learn programming?</h2>
+                  <div class="question-item-header-meta">
+                    <span class="question-item-header-meta-item">Asked by John Doe</span>
+                    <span class="question-item-header-meta-item">1 hour ago</span>
+                  </div>
+                </div>
+                <div class="question-item-body">
+                  <p>I'm a complete beginner and I want to learn how to program. What is the best way to get started? Should I take a course, read books, or just start coding? Any advice would be appreciated.</p>
+                </div>
+                <div class="question-item-footer">
+                  <a href="#" class="question-item-footer-button">Answer</a>
+                  <a href="#" class="question-item-footer-button">Comment</a>
+                </div>
+              </li>
+
+
+
+
+              <li class="question-item">
+                <div class="question-item-header">
+                  <h2 class="question-item-header-title">What is the best way to learn programming?</h2>
+                  <div class="question-item-header-meta">
+                    <span class="question-item-header-meta-item">Asked by John Doe</span>
+                    <span class="question-item-header-meta-item">1 hour ago</span>
+                  </div>
+                </div>
+                <div class="question-item-body">
+                  <p>I'm a complete beginner and I want to learn how to program. What is the best way to get started? Should I take a course, read books, or just start coding? Any advice would be appreciated.</p>
+                </div>
+                <div class="question-item-footer">
+                  <a href="#" class="question-item-footer-button">Answer</a>
+                  <a href="#" class="question-item-footer-button">Comment</a>
+                </div>
+              </li>
+
+
+
+
+              <li class="question-item">
+                <div class="question-item-header">
+                  <h2 class="question-item-header-title">What is the best way to learn programming?</h2>
+                  <div class="question-item-header-meta">
+                    <span class="question-item-header-meta-item">Asked by John Doe</span>
+                    <span class="question-item-header-meta-item">1 hour ago</span>
+                  </div>
+                </div>
+                <div class="question-item-body">
+                  <p>I'm a complete beginner and I want to learn how to program. What is the best way to get started? Should I take a course, read books, or just start coding? Any advice would be appreciated.</p>
+                </div>
+                <div class="question-item-footer">
+                  <a href="#" class="question-item-footer-button">Answer</a>
+                  <a href="#" class="question-item-footer-button">Comment</a>
+                </div>
+              </li>
+              <ul class="question-list">
+                <li class="question-item">
+                  <div class="question-item-header">
+                    <h2 class="question-item-header-title">What is the best way to learn programming?</h2>
+                    <div class="question-item-header-meta">
+                      <span class="question-item-header-meta-item">Asked by <a href="#">John Doe</a></span>
+                      <span class="question-item-header-meta-item">1 hour ago</span>
+                    </div>
+                  </div>
+                  <div class="question-item-body">
+                    <p>I'm a complete beginner and I want to learn how to program. What is the best way to get started? Should I take a course, read books, or just start coding? Any advice would be appreciated.</p>
+                  </div>
+                  <div class="question-item-footer">
+                    <a href="#" class="question-item-footer-button">Answer</a>
+                    <a href="#" class="question-item-footer-button">Comment</a>
+                  </div>
+                </li>
+              </ul>
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+
+
+              <div class="question-box">
+                <div class="question-header">
+                  Brian Budge - Follow
+                  <br />
+                  Former Staff Software Engineer at Google (company) (2013-2018) · Feb 5
+                </div>
+                <div class="question-title">
+                  How do I become tier 8 at Google, and does it require a master's degree or just experience?
+                </div>
+                <div class="question-text">
+                  I know L8s and L9s at Google who do not have a Masters or PhD, so I can confidently say a
+                  Masters degree is not required.
+                  <br /><br />
+                  “Just experience” doesn't really sum it up either. Many engineers never get beyond L5. The
+                  vast majority never exceed L6, regardless of years of experience. Reaching L8 means that you
+                  are having impact that produces effects noticeable on the company (or even industry) level.
+                </div>
+                <div class="question-footer">
+                  207 views · Upvote · <a href="#" id="comment-toggle">1 Comment</a>
+                </div>
+                <div id="comment-section" class="comment-section" style="display: none;">
+                  <p>User Comment: Great insight! Thanks for sharing.</p>
+                </div>
+              </div>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="post">Create Space</div>
+    <div class="post">Career Choices</div>
+    <div class="post">Engineering</div>
+    <div class="post">Salaries and Wages</div>
+    <div class="post">Job Searches</div>
+    <div class="post">Intelligence</div>
+  </div>
+  <div class="main">
+    <div class="post">
+      <div class="post-header">
+        <img src="user-placeholder.png" alt="User" crossorigin="anonymous" />
+        <div>
+          <a href="#">Aj. Raymond James Ritchie</a>
+          <div>Assoc Prof Biophysics</div>
+        </div>
+      </div>
+      <div class="post-content">
+        Which of the two majors, Master of Business Analysis and Master of Software Engineering, is
+        easier to find relevant job positions in Australia after graduation? (more)
+      </div>
+
+      <div class="interaction-buttons">
+        <button class="button">Like</button>
+        <button class="button">Comment</button>
+        <button class="button">Share</button>
+      </div>
+    </div>
+    <div class="post">
+      <div class="post-header">
+        <img src="user-placeholder.png" alt="User" crossorigin="anonymous" />
+        <div>
+          <a href="#">Kurt Guntheroth</a>
+          <div>35+ years as a working scientist</div>
+        </div>
+      </div>
+      <div class="post-content">
+        What opportunities does having a master's in computer science get you? (more)
+      </div>
+
+      <div class="interaction-buttons">
+        <button class="button">Like</button>
+        <button class="button">Comment</button>
+        <button class="button">Share</button>
+      </div>
+    </div>
+  </div>
+  <div class="rightbar">
+    <div class="right-item">
+      <a href="#">Social Advice</a>
+    </div>
+    <div class="right-item">
+      <a href="#">Life Advice</a>
+    </div>
+    <div class="right-item">
+      <a href="#">Engineering</a>
+    </div>
+  </div>
+</div>

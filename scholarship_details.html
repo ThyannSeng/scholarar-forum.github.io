@@ -1,0 +1,159 @@
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Scholarship Information Page</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+.slide-container {
+            position: relative;
+            width: 100%;
+            height: 575px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+        .shadow-mask {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+            pointer-events: none;
+        }
+        .shadow-mask.left {
+            left: 0;
+            transform: rotateY(180deg);
+        }
+        .shadow-mask.right {
+            right: 0;
+        }
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @keyframes fade {
+            from { opacity: .4 }
+            to { opacity: 1 }
+        }
+      </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-5">
+      <!-- Slideshow container -->
+      <div class="slide-container">
+          <!-- Shadows -->
+          <div class="shadow-mask left"></div>
+          <div class="shadow-mask right"></div>
+
+          <!-- Full-width images -->
+          <div class="mySlides fade">
+              <img src="image/MEXT scholarship/1.png" alt="Scholarship Photo 1">
+          </div>
+          <div class="mySlides fade">
+              <img src="image/MEXT scholarship/2.png" alt="Scholarship Photo 2">
+          </div>
+          <div class="mySlides fade">
+              <img src="image/MEXT scholarship/3.png" alt="Scholarship Photo 3">
+          </div>
+      </div>
+  
+          <!-- Scholarship Information -->
+          <div class="mt-8">
+              <h1 class="text-3xl font-bold text-gray-800 mb-2">MEXT Scholarship 2025</h1>
+              <p class="text-gray-600">Introduction or brief description about the scholarship, its importance, and impact.</p>
+              <div class="mt-4 bg-white p-6 rounded-lg shadow-lg">
+                  <h2 class="text-2xl font-bold text-gray-700">Eligibility Criteria</h2>
+                  <p class="text-gray-600">Details about who can apply for this scholarship.</p>
+                  <h2 class="text-2xl font-bold text-gray-700 mt-4">Scholarship Benefits</h2>
+                  <p class="text-gray-600">Information on what the scholarship covers.</p>
+                  <h2 class="text-2xl font-bold text-gray-700 mt-4">Application Deadline</h2>
+                  <p class="text-gray-600">Specify the deadline for application submission.</p>
+              </div>
+          </div>
+  
+          <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-zinc-700">Comments</h2>
+            <div class="mt-4">
+              <textarea
+                id="commentBox"
+                class="w-full p-2 text-zinc-700 border rounded-lg focus:outline-none"
+                rows="4"
+                placeholder="Write a comment..."
+              ></textarea>
+              <button
+                onclick="postComment()"
+                class="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Post Comment
+              </button>
+            </div>
+            <div id="commentList" class="mt-4"></div>
+          </div>
+
+
+          <!-- Contact Information -->
+          <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+              <h2 class="text-2xl font-bold text-gray-700">Contact Information</h2>
+              <p class="text-gray-600">Provide contact details for further inquiries.</p>
+          </div>
+  
+          <!-- Footer -->
+          <footer class="mt-8 p-6 bg-gray-800 text-white text-center rounded-lg shadow-lg">
+              <p>Connect with us on:</p>
+              <a href="#" class="text-blue-400 hover:text-blue-600">Facebook</a> | 
+              <a href="#" class="text-blue-400 hover:text-blue-600">Twitter</a> |
+              <a href="#" class="text-blue-400 hover:text-blue-600">LinkedIn</a>
+          </footer>
+      </div>
+
+      <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+<script>
+  function postComment() {
+      const commentBox = document.getElementById('commentBox');
+      const commentList = document.getElementById('commentList');
+      const newComment = document.createElement('div');
+      newComment.className = 'bg-zinc-200 p-2 my-2 rounded-lg';
+      newComment.textContent = commentBox.value;
+      commentList.appendChild(newComment);
+      commentBox.value = ''; // Clear the textarea after posting
+  }
+</script>
+
+
+  </body>
+  </html>
+  
