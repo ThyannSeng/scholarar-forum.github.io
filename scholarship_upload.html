@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,147 +7,111 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
 
-</script>
-<script type="text/javascript">
-  function redirectToLink() {
+  <script type="text/javascript">
+    function redirectToLink() {
       var select = document.getElementById('scholarship-select');
       var value = select.options[select.selectedIndex].value;
       
       if (value !== "") {
           window.location.href = value;
       }
-  }
-</script>
-
+    }
+  </script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;500;600;700&display=swap');
 
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+    }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-}
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+    .button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0;
+    }
 
-.button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 0;
-}
+    .button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 1px;
+        background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0) 100%);
+    }
 
-.button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 1px;
-    background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0) 100%); /* Adjust the color and opacity as needed */
-}
+    .button-container + .button-container {
+        margin-left: 16px;
+    }
 
-/* Adjust margin as needed to separate buttons */
-.button-container + .button-container {
-    margin-left: 16px; /* Adjust as needed */
-}
+    .select-centered {
+        text-align: center;
+    }
 
-.select-centered {
-    text-align: center; /* Horizontally centers text */
-
-}
-
-/* Ensures the select fills its container */
-.select-centered {
-    width: 100%;
-}
-
+    .select-centered {
+        width: 100%;
+    }
   </style>
 </head>
 <body class="font-['Noto Sans Khmer']">
-	<header class="bg-white shadow-md">
+  <header class="bg-white shadow-md">
     <div class="container mx-auto flex justify-between items-center py-1 px-5 lg:px-20">
-        <div class="flex items-center">
-            <a href="index.html">
-                <img src="image/logo.jpg" alt="The Scholarar logo, a blue and green circle with a book and a graduation cap." style="width: 55px;">
-            </a>
-        </div>
-      <div class="flex items-center justify-center flex-grow"> <!-- New container for Scholarar -->
-          <h1 class="text-2xl font-bold text-primary">SCHOLARAR</h1> <!-- Scholarar text -->
+      <div class="flex items-center">
+        <a href="index.html">
+          <img src="image/logo.jpg" alt="The Scholarar logo, a blue and green circle with a book and a graduation cap." style="width: 55px;">
+        </a>
+      </div>
+      <div class="flex items-center justify-center flex-grow">
+        <h1 class="text-2xl font-bold text-primary">SCHOLARAR</h1>
       </div>
       <div class="flex items-center">
-          <div class="flex items-center space-x-4">
-
-              <!-- <div class="relative">
-                <button class="p-2">🌐</button>
-                <div class="dropdown-menu absolute hidden bg-white rounded-md shadow-md">
-                    <a href="#" class="block p-2 hover:bg-gray-200">English</a>
-                    <a href="#" class="block p-2 hover:bg-gray-200">French</a>
-                    <a href="#" class="block p-2 hover:bg-gray-200">Spanish</a>
-                </div>
-            </div> -->
-            <button class="p-2">🔍</button>
-            <a href="scholarship_upload.html" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fas fa-upload"></i></a>
-                <a href="https://web.facebook.com/scholarar" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fab fa-facebook"></i></a>
-                <a href="https://t.me/scholarar" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fab fa-telegram"></i></a>
-                <a href="https://www.tiktok.com/@scholararkh" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fab fa-tiktok"></i></a>
-              <button class="p-2">📞</button>
-          </div>
-          <!-- <button class="p-2">☰</button> -->
-          <a href="login.html" class="block bg-zinc-200 p-2 rounded text-center text-gray-800 font-semibold hover:bg-zinc-300 transition duration-300">Login</a>
+        <div class="flex items-center space-x-4">
+          <button class="p-2">🔍</button>
+          <a href="scholarship_upload.html" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fas fa-upload"></i></a>
+          <a href="https://web.facebook.com/scholarar" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fab fa-facebook"></i></a>
+          <a href="https://t.me/scholarar" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@scholararkh" class="p-2 text-zinc-700 hover:text-zinc-900"><i class="fab fa-tiktok"></i></a>
+          <button class="p-2">📞</button>
+        </div>
+        <a href="login.html" class="block bg-zinc-200 p-2 rounded text-center text-gray-800 font-semibold hover:bg-zinc-300 transition duration-300">Login</a>
       </div>
-  </div>
-		<!-- <nav class="bg-gray-100">
-		  <div class="container mx-auto flex justify-between items-center py-4 px-5 lg:px-20">
-			<div class="flex items-center space-x-4">
-			  <a href="#" class="text-gray-700 hover:text-primary">Scholarship</a>
-			  <a href="#" class="text-gray-700 hover:text-primary">Countries</a>
-			  <a href="#" class="text-gray-700 hover:text-primary">Major</a>
-			</div>
-			<div class="flex items-center space-x-4">
-			  <input type="text" placeholder="Search..." class="bg-white border border-gray-300 rounded-md px-4 py-2">
-			  <button class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-md"><i class="fas fa-search"></i></button>
-			</div>
-		  </div>
-		</nav> -->
-	  </header>
+    </div>
+  </header>
 
-	  <div class="bg-white shadow-md ">
-      <div class="bg-gray-200">
-		<div class="max-w-7xl mx-auto px-4 bg-gray-200">
-		  <div class="flex justify-between items-center ">
-
-		  </div>
-      <div class="flex justify-between items-center py-2 border-t ">
-        <div class="flex">
+  <div class="bg-white shadow-md">
+    <div class="bg-gray-200">
+      <div class="max-w-7xl mx-auto px-4 bg-gray-200">
+        <div class="flex justify-between items-center"></div>
+        <div class="flex justify-between items-center py-2 border-t">
+          <div class="flex">
             <div class="relative">
-              <select id="scholarship-select"  class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Scholarships" onchange="redirectToLink()">
+              <select id="scholarship-select" class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Scholarships" onchange="redirectToLink()">
                 <option value="" hidden disabled selected></option>
-                  <option value="scholarship_details.html">MEXT Scholarship1</option>
-                  <option value="scholarship_details.html">Great Scholarship</option>
+                <option value="scholarship_details.html">MEXT Scholarship1</option>
+                <option value="scholarship_details.html">Great Scholarship</option>
               </select>
-              <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
-                  <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
-              </div>
-          </div>
-          <div class="relative">
-            <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Countries" onchange="redirectToLink()">
-              <option value="" hidden disabled selected></option>
+              <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none"></div>
+            </div>
+            <div class="relative">
+              <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Countries" onchange="redirectToLink()">
+                <option value="" hidden disabled selected></option>
                 <option value="scholarship_details.html">China</option>
                 <option value="scholarship_details.html">Japan</option>
                 <option value="scholarship_details.html">Thailand</option>
-            </select>
-            <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
-                <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
+              </select>
+              <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none"></div>
             </div>
-        </div>
-          <div class="relative">
+            <div class="relative">
               <select class="text-zinc-700 bg-gray-100 border border-gray-400 p-1 focus:outline-none focus:border-primary select-centered" data-placeholder="Majors" onchange="redirectToLink()">
                 <option value="" hidden disabled selected></option>
                 <option value="scholarship_details.html">Information Systems</option>
@@ -156,122 +119,121 @@
                 <option value="scholarship_details.html">Nurse</option>
                 <option value="scholarship_details.html">Interior Design</option>
               </select>
-              <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none">
-                  <!-- <svg class="h-4 w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5z"/></svg> -->
-              </div>
+              <div class="absolute inset-y-0 right-0 flex items-center px-1 pointer-events-none"></div>
+            </div>
           </div>
-      </div>
-      
-
-
-
-
-        <div class="flex space-x-4">
-          
+          <div class="flex space-x-4">
             <a href="http://www.Scholarar.com" class="text-gray-700 hover:text-primary">About Us</a>
             <a href="forum.html" class="text-gray-700 hover:text-primary">Forum</a>
             <a href="https://www.universityrankings.ch/" class="text-zinc-700 hover:text-zinc-900">University Ranking</a>
             <a href="#" class="text-zinc-700 hover:text-zinc-900">Creator mode</a>
+          </div>
         </div>
+      </div>
     </div>
-		</div>
-	  </div>
   </div>
+
   <main class="container mx-auto py-8 px-5 lg:px-20">
-
-
-<div class="flex justify-center">
-    <div class="bg-white p-6 rounded shadow-lg w-full lg:w-3/4 space-y-4">
-        
+    <div class="flex justify-center">
+      <div class="bg-white p-6 rounded shadow-lg w-full lg:w-3/4 space-y-4">
         <div class="flex flex-wrap -mx-2">
-            <div class="w-full lg:w-1/2 px-2 mb-4">
-                <label class="block mb-2">Scholarship name</label>
-                <input type="text" class="border border-zinc-300 p-2 w-full" placeholder=""/>
-
-                <label class="block mb-2 mt-4">Descriptions</label>
-                <textarea class="border border-zinc-300 p-2 w-full h-24"></textarea>
-
-                <label class="block mb-2 mt-4">Format</label>
-                <select class="border border-zinc-300 p-2 w-full">
-                    <option>Fulltime</option>
-                </select>
-
-                <label class="block mb-2 mt-4">Program Start Date - End Date</label>
-                <input type="text" class="border border-zinc-300 p-2 w-full" placeholder=""/>
-                
-                <label class="block mb-2 mt-4">Degree</label>
-                <select class="border border-zinc-300 p-2 w-full">
-                    <option>Bachelor</option>
-                </select>
-
-                <label class="block mb-2 mt-4">Open for</label>
-                <select class="border border-zinc-300 p-2 w-full">
-                    <option>All nationalities</option>
-                </select>
-            </div>
-
+          <div class="w-full lg:w-1/2 px-2 mb-4">
+            <label class="block mb-2">Scholarship name</label>
+            <input type="text" class="border border-zinc-300 p-2 w-full" placeholder=""/>
             
-            <div class="w-full lg:w-1/2 px-2 mb-4">
-                <label class="block mb-2">Locations</label>
-                <input type="text" class="border border-zinc-300 p-2 w-full" placeholder=""/>
+            <label class="block mb-2 mt-4">Descriptions</label>
+            <textarea class="border border-zinc-300 p-2 w-full h-24"></textarea>
+            
+            <label class="block mb-2 mt-4">Format</label>
+            <select class="border border-zinc-300 p-2 w-full">
+              <option>Fulltime</option>
+            </select>
+            
+            <label class="block mb-2 mt-4">Program Start Date - End Date</label>
+            <input type="text" class="border border-zinc-300 p-2 w-full" placeholder=""/>
+            
+            <label class="block mb-2 mt-4">Degree</label>
+            <select class="border border-zinc-300 p-2 w-full">
+              <option>Bachelor</option>
+            </select>
+            
+            <label class="block mb-2 mt-4">Open for</label>
+            <select class="border border-zinc-300 p-2 w-full">
+              <option>All nationalities</option>
+            </select>
+          </div>
 
-                <label class="block mb-2 mt-4">Contacts</label>
-                <div class="flex items-center">
-                    <input type="email" class="border border-zinc-300 p-2 w-full mr-2" placeholder="Email"/>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        + Add Links
-                    </button>
-                </div>
+          <div class="w-full lg:w-1/2 px-2 mb-4">
+            <label class="block mb-2">Country</label>
+            <select class="border border-zinc-300 p-2 w-full">
+              <option value="">Select Country</option>
+              <option value="China">China</option>
+              <option value="Japan">Japan</option>
+              <option value="Thailand">Thailand</option>
+              <!-- Add more countries as needed -->
+            </select>
 
-                <label class="block mb-2 mt-4">Opportunity Type</label>
-                <select class="border border-zinc-300 p-2 w-full">
-                    <option>Scholarship</option>
-                </select>
-
-                <label class="block mb-2 mt-4">Funding Type</label>
-                <select class="border border-zinc-300 p-2 w-full">
-                    <option>Fully funded</option>
-                </select>
-
-                <label class="block mb-2 mt-4">Choose image or video</label>
-                <input type="file" class="border border-zinc-300 p-2 w-full"/>
+            <label class="block mb-2 mt-4">Contacts</label>
+            <div class="flex items-center">
+              <input type="email" class="border border-zinc-300 p-2 w-full mr-2" placeholder="Email"/>
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                + Add Links
+              </button>
             </div>
+
+            <label class="block mb-2 mt-4">Opportunity Type</label>
+            <select class="border border-zinc-300 p-2 w-full">
+              <option>Scholarship</option>
+            </select>
+
+            <label class="block mb-2 mt-4">Funding Type</label>
+            <select class="border border-zinc-300 p-2 w-full">
+              <option>Fully funded</option>
+            </select>
+
+            <label class="block mb-2 mt-4">Choose image or video</label>
+            <input type="file" class="border border-zinc-300 p-2 w-full"/>
+
+            <label class="block mb-2 mt-4">Sex</label>
+            <select class="border border-zinc-300 p-2 w-full">
+              <option value="">Select Sex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
         </div>
-        
+
         <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded">
-            Upload
+          Upload
         </button>
+      </div>
     </div>
-</div>
+  </main>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var selects = document.querySelectorAll('select[data-placeholder]');
+      selects.forEach(function (select) {
+        function resetToPlaceholder() {
+          select.selectedIndex = 0;
+          select.style.color = '#000000';
+          select.options[0].text = select.getAttribute('data-placeholder');
+        }
 
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var selects = document.querySelectorAll('select[data-placeholder]');
-            selects.forEach(function (select) {
-                function resetToPlaceholder() {
-                    select.selectedIndex = 0; // Reset to the first option (placeholder)
-                    select.style.color = '#000000'; // Placeholder color (gray)
-                    select.options[0].text = select.getAttribute('data-placeholder'); // Ensure placeholder text is shown
-                }
-        
-                // Set placeholder on initial load
-                resetToPlaceholder();
-        
-                // Add event listener for changes on the select elements
-                select.addEventListener('change', function() {
-                    if (select.value === "") {
-                        resetToPlaceholder();
-                    } else {
-                        select.style.color = 'black'; // Change text color to black when an option is selected
-                    }
-                });
-        
-                // Reset to placeholder on page refresh
-                window.addEventListener('beforeunload', resetToPlaceholder);
-            });
+        resetToPlaceholder();
+
+        select.addEventListener('change', function() {
+          if (select.value === "") {
+            resetToPlaceholder();
+          } else {
+            select.style.color = 'black';
+          }
         });
-</script>
-        
+
+        window.addEventListener('beforeunload', resetToPlaceholder);
+      });
+    });
+  </script>
 </body>
 </html>
