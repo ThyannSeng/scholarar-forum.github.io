@@ -53,6 +53,21 @@
       });
     }
 
+
+    function addEmailField() {
+      const container = document.getElementById('contacts-container');
+      const newField = document.createElement('div');
+      newField.classList.add('flex', 'items-center', 'mt-2');
+      newField.innerHTML = `
+        <input type="email" class="border border-zinc-300 p-2 w-full mr-2" placeholder="Email"/>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="addEmailField()">
+          + Add Links
+        </button>
+      `;
+      container.appendChild(newField);
+    }
+
+
   </script>
 
   <style>
@@ -196,7 +211,21 @@
             
             <label class="block mb-2 mt-4">Open for</label>
             <select class="border border-zinc-300 p-2 w-full">
-              <option>All nationalities</option>
+              <option value="All nationalities">All nationalities</option>
+              <option value="Specific nationalities">Specific nationalities</option>
+              <option value="African countries">African countries</option>
+              <option value="Asian countries">Asian countries</option>
+              <option value="European countries">European countries</option>
+              <option value="North American countries">North American countries</option>
+              <option value="South American countries">South American countries</option>
+              <option value="Oceania countries">Oceania countries</option>
+            </select>
+            <select class="border border-zinc-300 p-2 w-full mt-2">
+              <option value="">Select Sex</option>
+              <option value="Any">Any sex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -211,11 +240,13 @@
             </select>
 
             <label class="block mb-2 mt-4">Contacts</label>
-            <div class="flex items-center">
-              <input type="email" class="border border-zinc-300 p-2 w-full mr-2" placeholder="Email"/>
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                + Add Links
-              </button>
+            <div id="contacts-container">
+              <div class="flex items-center">
+                <input type="email" class="border border-zinc-300 p-2 w-full mr-2" placeholder="Email"/>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="addEmailField()">
+                  + Add Links
+                </button>
+              </div>
             </div>
 
             <label class="block mb-2 mt-4">Opportunity Type</label>
@@ -231,13 +262,7 @@
             <label class="block mb-2 mt-4">Choose image or video</label>
             <input type="file" class="border border-zinc-300 p-2 w-full"/>
 
-            <label class="block mb-2 mt-4">Sex</label>
-            <select class="border border-zinc-300 p-2 w-full">
-              <option value="">Select Sex</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
+
           </div>
         </div>
 
